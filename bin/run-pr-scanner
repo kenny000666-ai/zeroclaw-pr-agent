@@ -1,0 +1,2 @@
+#!/bin/sh
+exec bash /zeroclaw-data/workspace/pr_review_scanner.sh "$@"
