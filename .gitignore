@@ -1,7 +1,7 @@
+*
+!/.gitignore
+!/*.md
+!README.md
 *.db
 *.db-shm
 *.db-wal
-*.json
-tmp_*
-gen_stderr
-git_test.txt
