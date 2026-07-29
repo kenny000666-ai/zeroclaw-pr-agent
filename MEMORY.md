@@ -9,3 +9,11 @@
 - **core_k3s_122**: Merged PR #122 in kenny-k3s/k3s: chore: update ai submodule (patch metrics.py gen_ai.system). Risk score: 5/100 (low). Review comment posted and PR was squash-merged.
 
 - **core_ai_663**: Merged PR #663 in kenny-k3s/ai: feat(litellm-edge-vpn): restructure into single container for guaranteed VPN rotation. Risk score: 20/100 (low). Review comment posted and PR was squash-merged.
+
+- **core_ai_agents_1629**: Merged PR #1629 in kenny-k3s/ai_agents: fix(openclaw): clean /git-repo before clone, drop chown. Risk score: 20/100 (low). Review comment posted and PR was squash-merged.
+
+- **core_ai_agents_1608**: Merged PR #1608 in kenny-k3s/ai_agents: fix(openclaw): switch openclaw-data to emptyDir to fix GlusterFS permission issue. Risk score: 20/100 (low). Review comment posted and PR was squash-merged.
+
+- **core_datastores_29**: Merged PR #29 in kenny-k3s/datastores: fix: mount obsidian-excludes and ignore volatile files in obsidian-sync. Risk score: 50/100 (medium). Review comment posted and PR was squash-merged.
+
+- **core_datastores_44**: Merged PR #44 in kenny-k3s/datastores: fix: switch Postgres volume hostPath to GlusterFS shared storage. Risk score: 20/100 (low). Review comment posted and PR was squash-merged.
