@@ -1,13 +1,9 @@
-### PR Review: fix: add missing type field to OTel LLM panels (#252)
+If we change MC_ALLOWED_HOSTS to include `mission-control.ai-agents.svc.cluster.local` (Approach b), compared to adding `-H 'Host: localhost'` to the sidecar curls (Approach a):
 
-The changes in this PR look correct, complete, and address the rendering issues with the OTel Real-Time LLM Metric panels.
+**Tradeoffs:**
+- **Security & Spoofing**: Host headers are easily spoofed by clients, so forcing it in curl offers no real security. Django/FastAPI use ALLOWED_HOSTS to prevent host header injection; MC validates the Host header against this list.
+- **Centralized Config**: Approach (b) keeps configuration on the server (MC deployment), which is the standard, cleaner approach. Approach (a) scatters this infrastructure detail into client sidecar scripts.
+- **Blast Radius**: Approach (b) allows the internal service FQDN, which has a negligible blast radius as it is only resolvable/accessible inside the cluster and still requires a valid `MC_API_KEY`.
+- **Validation**: MC checks the Host header string directly. Using the actual FQDN is cleaner and matches standard routing compared to spoofing `localhost`.
 
-#### Summary of Observations
-1. **Target Schema Fixes:** The 8 panels have been updated to include the missing target fields required by the InfluxDB SQL plugin (Flight SQL mode):
-   - `"dataset": "iox"`
-   - `"editorMode": "code"`
-   - `"rawSql"` (correctly mirroring the query text)
-   - `"sql"` metadata object with column function parameters.
-2. **Panel Types:** The `type` field is correctly set to `"stat"`, `"timeseries"`, or `"table"` for all relevant panels.
-3. **Stat Panels time column:** Added `MAX(time) AS time` to the queries for the stat panels (Input Tokens, Output Tokens, Total Cost, Avg Response Time) and set `resultFormat: "table"`. This is required to prevent the "no time column found" Grafana error.
-4. **Documentation:** The updates to `.opencode/skills/grafana-dashboard-engineering/SKILL.md` are excellent and accurately document these target structure requirements, macros, stat panel limitations, and the Grafana API round-trip behavior.
+**Verdict:** Request Changes. We should update `MC_ALLOWED_HOSTS` on the mission-control deployment to include `mission-control.ai-agents.svc.cluster.local` instead of faking the Host header in the sidecar.
