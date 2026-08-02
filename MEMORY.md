@@ -8,3 +8,4 @@
 - daily_2026-08-02_68a3e692-e66f-425b-9eca-5284e022c91e: The assistant reviewed and merged PR kenny-k3s/ha#109 (push daily consumption to Home Assistant REST API) with risk score 20.
 - daily_2026-08-02_9d4f2bc1-12c8-4712-ba28-76ad5a31bde8: The assistant reviewed and merged PR kenny-k3s/ai#732 (adds fast -> normal fallback to litellm_settings.fallbacks) with risk score 20, committing the change with SHA d3f0ec6f36a5e6f4cd487f011a644d06b6ec759d.
 - daily_2026-08-02_2dc3769d-877c-454e-9b35-57c8ddacaf21: The assistant reviewed and merged PR kenny-k3s/k3s#145 (chore: update ha submodule pointer to origin/main) with risk score 20, committing the change with SHA d3600a01533f169a1463ca4067b0946963317ca0.
+- daily_2026-08-02_0344cf09-c35b-40a4-98cc-6c11cef35060: The assistant reviewed and merged PR kenny-k3s/ha#110 (refactor: Home Assistant is the only data sink) with risk score 20, committing the change with SHA 1666ea50af05a0bdaf9a0407165f85d31569fd0a.
