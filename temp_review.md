@@ -1,0 +1,3 @@
+The changes in this PR look correct. Reverting the hindsight fact-extraction LLM to LiteLLM `normal` (using deepseek-v4-flash-free via opencode zen) resolves the issues with local models (`llama3.2:3b` taking 5-9 mins/op and `tinyllama` failing/truncating on JSON schema). Keeping embeddings local (`neptune/embed` via `all-minilm`) ensures embedding/recall workloads remain on the iGPU.
+
+Verdict: COMMENT (GitHub does not permit approving one's own PR, and the authenticated user is the PR author).
