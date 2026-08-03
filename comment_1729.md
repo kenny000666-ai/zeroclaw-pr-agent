@@ -1,0 +1,3 @@
+The changes in this PR look correct. Reverting the hindsight fact-extraction LLM back to the LiteLLM `normal` alias is appropriate because local models like `llama3.2:3b` and `tinyllama` are unsuitable for structured fact extraction (due to either extreme slowness or JSON parsing errors / schema truncation). Having embeddings stay local on ollama (`neptune/embed` via `all-minilm`) ensures embedding/recall remains local on the iGPU.
+
+Verdict: APPROVE (Note: Submitted as a comment review because GitHub does not permit approving one's own PR, and the authenticated user is the PR author).
